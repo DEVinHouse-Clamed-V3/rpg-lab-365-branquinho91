@@ -1,5 +1,5 @@
 const Arma = require("./Arma");
-const Inimigo = require("./Inimigo");
+// const Inimigo = require("./Inimigo");
 
 class Personagem {
   // Properties
@@ -39,19 +39,22 @@ class Personagem {
   }
 
   set vida(vida: number) {
-    this.vida = vida;
+    this._vida = vida;
   }
 
   set forca(forca: number) {
-    this.forca = forca;
+    this._forca = forca;
   }
 
   set arma(arma: InstanceType<typeof Arma> | null) {
-    this.arma = arma;
+    this._arma = arma;
   }
 
   // Methods
-  atacar(alvo: InstanceType<typeof Inimigo>) {
+
+  /* IMPLEMENTAR INIMIGO */
+  /* atacar(alvo: arma: InstanceType<typeof Inimigo>) { */
+  atacar() {
     const chance = Math.random() < 0.5;
 
     if (chance) {
@@ -68,25 +71,20 @@ class Personagem {
     this.vida -= dano;
 
     if (this.vida <= 0) {
-      console.log("Seu personagem foi derrotado!");
-      console.log("Fim de jogo! :(");
-      process.exit(0);
+      this.vida = 0;
+      console.log(`${this.nome} recebeu ${dano} de dano! ${this.nome} Foi derrotado!`);
     } else {
-      console.log(`Recebeu ${dano} de dano! Está com ${this.vida} de vida!`);
+      console.log(`${this.nome} recebeu ${dano} de dano! Está com ${this.vida} de vida!`);
     }
   }
 
   equiparArma(arma: InstanceType<typeof Arma>) {
-    this.arma = arma;
-    console.log(`Equipou a arma ${arma.nome}. Aumentando seu dano em ${arma.dano}`);
+    this._arma = arma;
+    console.log(`${this.nome} equipou a arma ${arma.nome}. Aumentando seu dano em ${arma.dano}`);
   }
 
   private calcularDano() {
-    if (this.arma) {
-      return this.forca + this.arma.dano;
-    } else {
-      return this.forca;
-    }
+    return this.forca + (this.arma?.dano || 0);
   }
 }
 
