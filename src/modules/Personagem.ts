@@ -83,5 +83,3 @@ export default class Personagem {
     return this.forca + (this.arma?.dano || 0);
   }
 }
-
-module.exports = Personagem;
