@@ -69,6 +69,8 @@ export default class Personagem {
     if (this.vida <= 0) {
       this.vida = 0;
       console.log(`${this.nome} recebeu ${dano} de dano! ${this.nome} Foi derrotado!`);
+      console.log("FIM DE JOGO!");
+      process.exit(0);
     } else {
       console.log(`${this.nome} recebeu ${dano} de dano! Está com ${this.vida} de vida!`);
     }
