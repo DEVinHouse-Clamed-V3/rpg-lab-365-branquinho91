@@ -1,59 +1,59 @@
-const Arma = require("./Arma");
-// const Inimigo = require("./Inimigo");
+import Arma from "./Arma";
+// import Inimigo from "./Inimigo;"
 
-class Personagem {
+export default class Personagem {
   // Properties
-  private _nome: string;
-  private _vida: number;
-  private _forca: number;
-  private _arma: InstanceType<typeof Arma> | null;
+  #nome: string;
+  #vida: number;
+  #forca: number;
+  #arma: Arma | null;
 
   // Constructor
-  constructor(nome: string, vida: number, forca: number, arma: InstanceType<typeof Arma> | null = null) {
-    this._nome = nome;
-    this._vida = vida;
-    this._forca = forca;
-    this._arma = arma;
+  constructor(nome: string, vida: number, forca: number, arma: Arma | null = null) {
+    this.#nome = nome;
+    this.#vida = vida;
+    this.#forca = forca;
+    this.#arma = arma;
   }
 
   // Getters
   get nome() {
-    return this._nome;
+    return this.#nome;
   }
 
   get vida() {
-    return this._vida;
+    return this.#vida;
   }
 
   get forca() {
-    return this._forca;
+    return this.#forca;
   }
 
   get arma() {
-    return this._arma;
+    return this.#arma;
   }
 
   // Setters
   set nome(nome: string) {
-    this._nome = nome;
+    this.#nome = nome;
   }
 
   set vida(vida: number) {
-    this._vida = vida;
+    this.#vida = vida;
   }
 
   set forca(forca: number) {
-    this._forca = forca;
+    this.#forca = forca;
   }
 
-  set arma(arma: InstanceType<typeof Arma> | null) {
-    this._arma = arma;
+  set arma(arma: Arma | null) {
+    this.#arma = arma;
   }
 
   // Methods
 
   /* IMPLEMENTAR INIMIGO */
-  /* atacar(alvo: arma: InstanceType<typeof Inimigo>) { */
+  /* atacar(alvo: Inimigo) { */
   atacar() {
     const chance = Math.random() < 0.5;
 
@@ -78,12 +78,12 @@ class Personagem {
     }
   }
 
-  equiparArma(arma: InstanceType<typeof Arma>) {
-    this._arma = arma;
+  equiparArma(arma: Arma) {
+    this.#arma = arma;
     console.log(`${this.nome} equipou a arma ${arma.nome}. Aumentando seu dano em ${arma.dano}`);
   }
 
-  private calcularDano() {
+  calcularDano() {
     return this.forca + (this.arma?.dano || 0);
   }
 }

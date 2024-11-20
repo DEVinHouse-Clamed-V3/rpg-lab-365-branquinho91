@@ -1,6 +1,4 @@
-const Arma = require("./Arma");
-const Personagem = require("./Personagem");
+import Arma from "./Arma";
+import Personagem from "./Personagem";
 
-class Inimigo {} //extends Personagem {}
-
-module.exports = Inimigo;
+export default class Inimigo {} //extends Personagem {}
