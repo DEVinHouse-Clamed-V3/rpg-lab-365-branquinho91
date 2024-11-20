@@ -1,27 +1,27 @@
 export default class Arma {
   // Properties
-  #nome: string;
-  #dano: number;
-  #descricao: string;
+  private _nome: string;
+  private _dano: number;
+  private _descricao: string;
 
   // Constructor
   constructor(nome: string, dano: number, descricao: string) {
-    this.#nome = nome;
-    this.#dano = dano;
-    this.#descricao = descricao;
+    this._nome = nome;
+    this._dano = dano;
+    this._descricao = descricao;
   }
 
   // Getters
   get nome(): string {
-    return this.#nome;
+    return this._nome;
   }
 
   get dano(): number {
-    return this.#dano;
+    return this._dano;
   }
 
   get descricao(): string {
-    return this.#descricao;
+    return this._descricao;
   }
 
   // Setters
@@ -29,6 +29,6 @@ export default class Arma {
     if (dano < 0) {
       throw new Error(`Valor de dano inválido: ${dano}. O dano deve ser um valor positivo.`);
     }
-    this.#dano = dano;
+    this._dano = dano;
   }
 }
