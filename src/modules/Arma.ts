@@ -1,8 +1,8 @@
 export default class Arma {
   // Properties
-  private _nome: string;
+  private readonly _nome: string;
+  private readonly _descricao: string;
   private _dano: number;
-  private _descricao: string;
 
   // Constructor
   constructor(nome: string, dano: number, descricao: string) {

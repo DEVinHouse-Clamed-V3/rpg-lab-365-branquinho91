@@ -3,10 +3,10 @@ import Inimigo from "./Inimigo";
 
 export default class Personagem {
   // Properties
-  protected _nome: string;
-  protected _vida: number;
-  protected _forca: number;
-  protected _arma: Arma | null;
+  private _nome: string;
+  private _vida: number;
+  private _forca: number;
+  private _arma: Arma | null;
 
   // Constructor
   constructor(nome: string, vida: number, forca: number, arma: Arma | null = null) {
