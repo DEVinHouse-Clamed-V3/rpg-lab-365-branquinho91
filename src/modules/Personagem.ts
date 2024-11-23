@@ -3,7 +3,7 @@ import Inimigo from "./Inimigo";
 
 export default class Personagem {
   // Properties
-  private _nome: string;
+  private readonly _nome: string;
   private _vida: number;
   private _forca: number;
   private _arma: Arma | null;
@@ -31,11 +31,6 @@ export default class Personagem {
 
   get arma() {
     return this._arma;
-  }
-
-  // Setters
-  set nome(nome: string) {
-    this._nome = nome;
   }
 
   set vida(vida: number) {
